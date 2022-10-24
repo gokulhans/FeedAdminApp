@@ -8,20 +8,41 @@ import { Routes, Route } from 'react-router-dom';
 // import EditProduct from './pages/Admin/EditProduct';
 // import AllProducts from './pages/Home/AllProducts';
 // import DeliverdProducts from './pages/Home/DeliverdProducts';
+import AllOrders from './pages/AllOrders';
+import AllUsers from './pages/AllUsers';
+import AllProducts from './pages/AllProducts';
+import AddOrder from './pages/AdminForms/AddOrder';
+import EditOrder from './pages/AdminForms/EditOrder';
+import AddUser from './pages/AdminForms/AddUser';
+import EditUser from './pages/AdminForms/EditUser';
+import AddProduct from './pages/AdminForms/AddProduct';
+import EditProduct from './pages/AdminForms/EditProduct';
 
 function App() {
   return (
     <> 
 
-      <div className='fixed top-0 inset-x-0 z-40'> <Navbar /> </div>
+      <div className='fixed top-0 left-0 z-40'> <Navbar /> </div>
 
       {/* <div className='fixed bottom-0 inset-x-0 z-50'> <Footer /> </div> */}
 
-      <div className='mt-16 flex flex-col justify-start w-full  sm:items-center sm:p-5'>
+      <div className='mt-5 flex flex-col justify-start w-full  items-center p-5' style={{paddingLeft:"16rem"}}>
 
         <Routes>
 
           <Route exact path="/" element={<Home />} />
+
+          <Route path="/products" element={<AllProducts />} />
+          <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/editproduct/:id" element={<EditProduct />} />
+
+          <Route path="/users" element={<AllUsers />} />
+          <Route path="/adduser" element={<AddUser />} />
+          <Route path="/edituser/:id" element={<EditUser />} />
+
+          <Route path="/orders" element={<AllOrders />} />
+          <Route path="/addorder" element={<AddOrder />} />
+          <Route path="/editorder/:id" element={<EditOrder />} />
           {/* <Route path="/admin" element={<Admin />} />
           <Route path="/newproduct" element={<NewProduct />} />
           <Route path="/editproduct/:id" element={<EditProduct />} />
@@ -29,7 +50,7 @@ function App() {
           <Route path="/deliverdproducts" element={<DeliverdProducts />} /> */}
 
         </Routes>
-
+ 
       </div> 
     </>
   );
