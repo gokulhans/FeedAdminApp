@@ -1,20 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { collection, onSnapshot, doc, deleteDoc, Timestamp } from 'firebase/firestore';
+import { collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { auth, db } from '../firebase-config';
 import { where } from 'firebase/firestore';
 import { query } from 'firebase/firestore';
 import DeleteAlert from './../components/Alert/DeleteAlert';
 import { setDoc } from 'firebase/firestore';
-import { serverTimestamp } from 'firebase/firestore';
-import { addDoc } from 'firebase/firestore';
 
-function AllOrders() {
+function OrderHistory() {
 
   const [orderList, setorderList] = useState([]);
-  const orderCollectionRef = query(collection(db, "orders"))
+  const orderCollectionRef = query(collection(db, "ordershistory"))
   // let userid = localStorage.getItem("authorid");
   // const orderCollectionRef = query(collection(db, "orders"), where("author.id", "==", userid))
 
@@ -33,8 +31,6 @@ function AllOrders() {
     await deleteDoc(userDoc);
   };
 
-  const historyCollectionRef = collection(db, "ordershistory");
-
   const deliverOrder = async (order) => {
     await setDoc(doc(db, "orders", order.id), {
       hostel: order.hostel,
@@ -42,23 +38,13 @@ function AllOrders() {
       itemtype:order.itemtype,
       status:"deliverd"
     });
-
     alert("Item Deliverd")
-
-    await addDoc(historyCollectionRef, {
-      hostel: order.hostel,
-      product:order.product,
-      itemtype:order.itemtype,
-      status:"deliverd",
-      timestamp:serverTimestamp()
-    });
-
   };
 
 
   return (
     <div>
-      <center className='font-bold text-2xl'>All orders</center>
+      <center className='font-bold text-2xl'>Order History</center>
       <div className="m-8 overflow-x-auto relative shadow-md sm:rounded-lg">
         {/* <button className='absolute right-0 my-3 rounded text-white font-semibold'>
           <Link to={"/addorder"}>
@@ -84,7 +70,7 @@ function AllOrders() {
                 Status
               </th>
               <th scope="col" className="py-3 px-6 text-base">
-                Actions
+                Date
               </th>
             </tr>
           </thead>
@@ -103,7 +89,7 @@ function AllOrders() {
                   </td>
                   {order.status == "todeliver" ? (
                     <>
-                      <td className="py-4 px-6 text-blue-500 font-medium">
+                      <td className="py-4 px-6 text-green-500 font-medium">
                         {order.status}
                       </td>
                     </>
@@ -114,13 +100,16 @@ function AllOrders() {
                       </td>
                     </>
                   )}
+                  <td className="py-4 px-6">
+                    {order.timestamp.toDate().toString()}
+                  </td>
 
-                  <td className="py-4 px-6 text-right">
-                    {/* <Link to={`/order/${order.id}`} className="font-medium text-gray-600 dark:text-blue-500 hover:underline">View</Link> */}
-                    {/* <Link to={`/editorder/${order.id}`} className="mx-5 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link> */}
+                  {/* <td className="py-4 px-6 text-right">
+                    <Link to={`/order/${order.id}`} className="font-medium text-gray-600 dark:text-blue-500 hover:underline">View</Link>
+                    <Link to={`/editorder/${order.id}`} className="mx-5 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                     <button onClick={() => { deleteOrder(order.id) }} className="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</button>
                     <button onClick={() => { deliverOrder(order) }} className="font-medium text-green-600 dark:text-blue-500 hover:underline mx-5">Deliver</button>
-                  </td>
+                  </td> */}
                 </tr>
               )
             })}
@@ -132,4 +121,4 @@ function AllOrders() {
   )
 }
 
-export default AllOrders
+export default OrderHistory

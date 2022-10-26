@@ -54,19 +54,19 @@ function Navbar() {
         <div className="overflow-y-auto py-4 px-3 ">
           <ul className="space-y-2">
 
-            <li onClick={() => myFunction()}>
+            {/* <li onClick={() => myFunction()}>
               <Link to={"/"}>
                 <div className="flex items-center p-2 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-green-700">
                   <svg aria-hidden="true" className="w-6 h-6 text-green-500 transition duration-75 dark:text-green-400 group-hover:text-green-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
                   <span className="ml-3">Home</span>
                 </div>
               </Link>
-            </li>
+            </li> */}
             <li onClick={() => myFunction()}>
-              <Link to={"/products"}>
+              <Link to={"/todayorders"}>
                 <div className="flex items-center p-2 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-green-700">
-                  <svg aria-hidden="true" className="w-6 h-6 text-green-500 transition duration-75 dark:text-green-400 group-hover:text-green-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-                  <span className="ml-3">All Products</span>
+                  <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-green-500 transition duration-75 dark:text-green-400 group-hover:text-green-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd"></path></svg>
+                  <span className="ml-3">Todays Menu</span>
                 </div>
               </Link>
             </li>
@@ -78,14 +78,24 @@ function Navbar() {
                 </div>
               </Link>
             </li>
+            
+            <li onClick={() => myFunction()}>
+              <Link to={"/products"}>
+                <div className="flex items-center p-2 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-green-700">
+                  <svg aria-hidden="true" className="w-6 h-6 text-green-500 transition duration-75 dark:text-green-400 group-hover:text-green-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+                  <span className="ml-3">All Products</span>
+                </div>
+              </Link>
+            </li>
             <li onClick={() => myFunction()}>
               <Link to={"/users"}>
                 <div className="flex items-center p-2 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-green-700">
                   <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-green-500 transition duration-75 dark:text-green-400 group-hover:text-green-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd"></path></svg>
-                  <span className="ml-3">All Users</span>
+                  <span className="ml-3">All Hostels</span>
                 </div>
               </Link>
             </li>
+
             <li onClick={() => myFunction()}>
               <Link to={"/orderhistory"}>
                 <div className="flex items-center p-2 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-green-700">
@@ -93,14 +103,6 @@ function Navbar() {
                   <span className="ml-3">Order History</span>
                 </div>
               </Link>
-            </li>
-            <li onClick={() => myFunction()}>
-              <a href='https://feeduserapp.vercel.app/' target="_blank">
-                <div className="flex items-center p-2 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-green-700">
-                  <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-green-500 transition duration-75 dark:text-green-400 group-hover:text-green-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd"></path></svg>
-                  <span className="ml-3">Preview App</span>
-                </div>
-              </a>
             </li>
 
             {/* <li onClick={() => myFunction()}>

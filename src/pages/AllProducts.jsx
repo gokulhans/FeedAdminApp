@@ -24,6 +24,7 @@ function AllProducts() {
 
   const deleteProduct = async (id) => {
     const userDoc = doc(db, "products", id);
+    alert("Item Deleted")
     await deleteDoc(userDoc);
   };
 

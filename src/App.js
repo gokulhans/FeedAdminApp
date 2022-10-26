@@ -17,6 +17,8 @@ import AddUser from './pages/AdminForms/AddUser';
 import EditUser from './pages/AdminForms/EditUser';
 import AddProduct from './pages/AdminForms/AddProduct';
 import EditProduct from './pages/AdminForms/EditProduct';
+import TodaysOrder from './pages/TodaysOrder';
+import OrderHistory from './pages/OrderHistory';
 
 function App() {
   return (
@@ -30,7 +32,7 @@ function App() {
 
         <Routes>
 
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<TodaysOrder />} />
 
           <Route path="/products" element={<AllProducts />} />
           <Route path="/addproduct" element={<AddProduct />} />
@@ -43,6 +45,9 @@ function App() {
           <Route path="/orders" element={<AllOrders />} />
           <Route path="/addorder" element={<AddOrder />} />
           <Route path="/editorder/:id" element={<EditOrder />} />
+
+          <Route path="/todayorders" element={<TodaysOrder />} />
+          <Route path="/orderhistory" element={<OrderHistory />} />
           {/* <Route path="/admin" element={<Admin />} />
           <Route path="/newproduct" element={<NewProduct />} />
           <Route path="/editproduct/:id" element={<EditProduct />} />

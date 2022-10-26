@@ -8,6 +8,7 @@ function AddUser() {
   const [name, setName] = useState("");
   const [address, setaddress] = useState("");
   const [phone, setphone] = useState("");
+  const [users, setUsers] = useState("");
   const [location, setlocation] = useState("");
 
   const usersCollectionRef = collection(db, "users");
@@ -19,6 +20,7 @@ function AddUser() {
       address,
       phone,
       location,
+      users
     });
     navigate("/users");
   };
@@ -34,7 +36,7 @@ function AddUser() {
     <div className="w-full max-w-xl m-5">
 
       <div >
-        <center className='font-bold text-2xl'>Add users</center>
+        <center className='font-bold text-2xl'>Add Hostel</center>
 
         <div className="mb-6">
           <label htmlFor="name" className="block mb-2 text-sm font-medium text-black dark:text-gray-300">Name</label>
@@ -59,6 +61,16 @@ function AddUser() {
           <textarea type="text" id="address" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" placeholder="address.."
             onChange={(event) => {
               setphone(event.target.value);
+            }}
+          />
+        </div>
+
+
+        <div className="mb-6">
+          <label htmlFor="address" className="text-black block mb-2 text-sm font-medium dark:text-gray-300">Users</label>
+          <textarea type="text" id="address" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" placeholder="total users.."
+            onChange={(event) => {
+              setUsers(event.target.value);
             }}
           />
         </div>

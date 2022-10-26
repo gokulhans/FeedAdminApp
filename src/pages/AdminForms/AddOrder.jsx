@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { db, auth } from './../../firebase-config';
 
@@ -19,6 +19,7 @@ function AddOrder() {
       user,
       price,
       status,
+      timestamp:serverTimestamp(),
     });
     navigate("/orders");
   };
@@ -34,7 +35,7 @@ function AddOrder() {
     <div className="w-full max-w-xl m-5">
 
       <div >
-        <center className='font-bold text-2xl'>Add orders</center>
+        <center className='font-bold text-2xl'>Add Order</center>
 
         <div className="mb-6">
           <label htmlFor="name" className="block mb-2 text-sm font-medium text-black dark:text-gray-300">Product Name</label>
@@ -62,7 +63,6 @@ function AddOrder() {
             }}
           />
         </div>
-
         {/* <div className="mb-6">
           <label htmlFor="desc" className="text-black block mb-2 text-sm font-medium dark:text-gray-300">status Link</label>
           <textarea type="text" id="desc" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" placeholder="status Link.."

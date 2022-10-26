@@ -24,18 +24,19 @@ function AllUsers() {
 
   const deleteuser = async (id) => {
     const userDoc = doc(db, "users", id);
+    alert("Item Deleted")
     await deleteDoc(userDoc);
   };
 
 
   return (
     <div>
-      <center className='font-bold text-2xl'>All users</center>
+      <center className='font-bold text-2xl'>All Hostels</center>
       <div className="m-8 overflow-x-auto relative shadow-md sm:rounded-lg">
         <button className='absolute right-0 my-3 rounded text-white font-semibold'>
           <Link to={"/adduser"}>
             <div className='px-3 bg-blue-500 mx-5 py-2 rounded text-white font-medium hover:bg-blue-700'>
-              New user
+              New Hostel
             </div>
           </Link>
         </button>
@@ -43,7 +44,7 @@ function AllUsers() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="py-3 px-6 text-base">
-                User name
+                Hostal name
               </th>
               <th scope="col" className="py-3 px-6 text-base">
                 Address
@@ -52,7 +53,7 @@ function AllUsers() {
                 Phone
               </th>
               <th scope="col" className="py-3 px-6 text-base">
-                Location
+                Users
               </th>
               <th scope="col" className="py-3 px-6 text-base">
                 Actions
@@ -73,7 +74,7 @@ function AllUsers() {
                     {user.phone}
                   </td>
                   <td className="py-4 px-6">
-                    {user.location}
+                    {user.users}
                   </td>
                   {/* <td className="py-4 px-6 text-green-500">
                     <img src={user.image} width="60" height="50" alt="" />
@@ -83,7 +84,9 @@ function AllUsers() {
                     <Link to={`/edituser/${user.id}`} className="mx-5 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                     <button onClick={() => { deleteuser(user.id) }} className="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</button>
                   </td>
+                  {/* <iframe src={user.location} width="400" height="300" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
                 </tr>
+
               )
             })}
 
