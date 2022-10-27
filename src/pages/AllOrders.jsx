@@ -36,17 +36,21 @@ function AllOrders() {
   const historyCollectionRef = collection(db, "ordershistory");
 
   const deliverOrder = async (order) => {
+    
     await setDoc(doc(db, "orders", order.id), {
       hostel: order.hostel,
+      hosteldata:order.hosteldata,
       product:order.product,
       itemtype:order.itemtype,
-      status:"deliverd"
+      status:"deliverd",
+      timestamp:serverTimestamp()
     });
 
     alert("Item Deliverd")
 
     await addDoc(historyCollectionRef, {
       hostel: order.hostel,
+      hosteldata:order.hosteldata,
       product:order.product,
       itemtype:order.itemtype,
       status:"deliverd",

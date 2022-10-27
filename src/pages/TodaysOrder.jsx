@@ -82,14 +82,14 @@ function TodaysOrder() {
 
     userList.forEach(hostel => {
       addDoc(ordersCollectionRef, {
-        hostel: hostel.name, product:breakfast ,status:"todeliver",itemtype:"Breakfast"
+        hostel: hostel.name, product:breakfast ,status:"todeliver",itemtype:"Breakfast",hosteldata:hostel
       });
       addDoc(ordersCollectionRef, {
-        hostel: hostel.name, product:lunch ,status:"todeliver",itemtype:"Lunch"
+        hostel: hostel.name, product:lunch ,status:"todeliver",itemtype:"Lunch",hosteldata:hostel
       });
        
       addDoc(ordersCollectionRef, {
-        hostel: hostel.name, product:dinner ,status:"todeliver",itemtype:"Dinner"
+        hostel: hostel.name, product:dinner ,status:"todeliver",itemtype:"Dinner",hosteldata:hostel
       });
       console.log("done");
     });
