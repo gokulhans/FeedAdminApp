@@ -50,7 +50,6 @@ function OrderHistory() {
           <Link to={"/addorder"}>
             <div className='px-3 bg-blue-500 mx-5 py-2 rounded text-white font-medium hover:bg-blue-700'>
               New Order
-
             </div>
           </Link>
         </button> */}
